@@ -1,12 +1,98 @@
 
 /* Colors!
-/* Stickynote-yellow : #FFFFA5  */
-/* Background yellow : #FFFFD7  */
-/* Dark yellow : #CBCC75        */
+/* Stickynote-yellow : #FFEE58  */
+/* Background yellow : #FAFAFA  */
+/* Dark yellow : #C9BC1F        */
 
 body {
-    font-family: 'Noto Sans', sans-serif;
-    background-color: #ffffd7;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main-container {
+    padding-top: 40px;
+}
+
+.stickyNote {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    grid-template-rows: 4fr 4fr 1fr;
+    position: relative;
+    overflow: hidden;
+
+    /* Shadows */
+    -webkit-box-shadow: -1.5px 2px 2px rgba(0,0,0,0.3), -1px 2px 2px rgba(0,0,0,0.2);
+    -moz-box-shadow: -1.5px 2px 2px rgba(0,0,0,0.3), -1px 2px 2px rgba(0,0,0,0.2);
+    box-shadow: -1.5px 2px 2px rgba(0,0,0,0.3), -1px 2px 2px rgba(0,0,0,0.2);
+}
+
+.stickyNote:hover {
+    cursor: pointer;
+
+    -webkit-box-shadow: -4.5px 4.5px 5px rgba(0,0,0,0.3), -4.5px 4.5px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: -4.5px 4.5px 5px rgba(0,0,0,0.3), -4.5px 4.5px 5px rgba(0,0,0,0.2);
+    box-shadow: -4.5px 4.5px 5px rgba(0,0,0,0.3), -4.5px 4.5px 5px rgba(0,0,0,0.2);
+}
+
+.stickyNote:hover:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-width: 0 7vmin 7vmin 0;
+  border-style: solid;
+
+  /*Shadows*/
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+}
+
+.stickyImgContainer {
+    width: 100%;
+    padding-bottom: 50%;
+    background-size: cover;
+}
+
+.stickyImgContainer:before {
+    grid-row: 1 / 1;
+    content: "";
+    display: block;
+    background-color: rgba(225, 225, 225, 0.6);
+    width: 100%;
+    height: 100%;
+}
+
+.stickyTitleContainer {
+    grid-row: 2 / 2;
+    width: 100%;
+    padding-bottom: 30%;
+    margin: 10px;
+}
+
+.stickyFooter {
+    grid-row: 3 / 3;
+    height: 100%;
+    display: grid;
+    background-columns: 2fr 5fr;
+}
+
+.stickyFooter .date {
+    grid-column: 1 / 1;
+    font-size: 10pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFEE58;
+}
+
+.stickyFooter .author {
+    grid-column: 2 / 2;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    background-color: #FFEE58;
 }
 
 .main-wrapper {
@@ -17,74 +103,4 @@ body {
     grid-column-gap: 100px;
     justify-content: center;
     align-content: start;
-}
-
-.stickyNote {
-    width: 100%;
-    height: 500px;
-    display: grid;
-    background-color: #FFFFD7;
-    grid-template-rows: 4fr 4fr 1fr;
-    position: relative;
-    overflow: hidden;
-
-    /* Shadows */
-    -webkit-box-shadow: -1.5px 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
-    -moz-box-shadow: -1.5px 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
-    box-shadow: -1.5px 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
-}
-
-.stickyNote:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-width: 0 40px 40px 0;
-  border-style: solid;
-  border-color: #FFF175 #FFFFD7;
-
-  /*Shadows*/
-  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
-  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
-  box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
-}
-
-.stickyImgContainer {
-    grid-row: 1 / 1;
-    height: 100%;
-    background-color: #FFFFA5;
-}
-
-.stickyTitleContainer {
-    grid-row: 2 / 2;
-    height: 100%;
-    background-color: #FFFFA5;
-}
-
-.stickyFooter {
-    grid-row: 3 / 3;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 2fr 5fr;
-}
-
-.stickyFooter .date {
-    grid-column: 1 / 1;
-    font-size: 10pt;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #FFFFA5;
-}
-
-.stickyFooter .author {
-    grid-column: 2 / 2;
-    padding-left: 10px;
-    display: flex;
-    align-items: center;
-    background-color: #FFFFA5;
-}
-
-a {
-    text-decoration: none;
 }
